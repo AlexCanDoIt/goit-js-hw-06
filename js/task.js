@@ -72,8 +72,8 @@ console.log(`Task #7:`, calculateTotalBalance(users));
 * Task #8
 */
 const getUsersWithFriend = (users, friendName) => users
-  .filter(user => user.friends.includes(friendName))
-  .map(user => user.name);
+  .filter(({ friends }) => friends.includes(friendName))
+  .map(({ name }) => name);
 
 console.log(`Task #8.1:`, getUsersWithFriend(users, 'Briana Decker'));
 // [ 'Sharlene Bush', 'Sheree Anthony' ]
@@ -93,7 +93,7 @@ console.log(`Task #9:`, getNamesSortedByFriendsCount(users));
 * Task #10
 */
 const getSortedUniqueSkills = users => users
-    .flatMap(user => user.skills)
+    .flatMap(({ skills }) => skills)
     .filter((skill, idx, arr) => arr.indexOf(skill) === idx)
     .sort();
 
